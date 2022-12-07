@@ -4,14 +4,16 @@
 Premièrement, l'**observateur** est un modèle de conception comportemental et permet donc d'organiser les objets pour qu'ils puissent collaboré.  
 Mais plus spécifiquement, un **observateur** est un objet qui sert à notifier les objets sur un évènement qui est arrivé sur l'objet qu'il observe.
 
+<img src="./img/DesignPattern-Observateur-Basic.png" alt="Diagramme UML Observateur"/>
+
+### Exemple
+
 Pour illustrer cela, nous pouvons prendre l'exemple d'un cinéma et de plusieurs clients.
 Le problème est que les clients se rendent tous les jours au cinéma pour savoir si le film qu'ils veulent voir est disponible.
 Ce qui est une perte de temps considérable.
 La solution serait que le cinéma propose un abonemment à une newsletter (et la possibilité de se désabonner) et qu'il envoie un mail à tous les abonnés lorsqu'un film vient de sortir.
 
 Mais il ne faut oublier qu'un modèle de conception peut-être réutilisé dans de nombreux cas du quotidien comme une application sportive qui envoie une notification sur le score du match lorsque ce-dernier change, ...
-
-<img src="./img/ObserverPatternSet-2.png" alt="Diagramme UML Observateur"/>
 
 ### Implémentation
 
