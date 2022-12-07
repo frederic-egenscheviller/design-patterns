@@ -16,20 +16,229 @@ Mais il ne faut oublier qu'un modèle de conception peut-être réutilisé dans 
 ### Implémentation
 
 Implémenter une classe Match qui notifie les abonnés lorsque le score du match change.
-Cette classe accepte de nouveau abonné et ils leurs permet de se désabonnér.
+Cette classe accepte de nouveau abonné et ils leurs permet de se désabonner.
 
 
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Match m1 = new Match("France","Italie");
+
+        TabScoreMax t1 = new TabScoreMax();
+        TabScoreMin t2 = new TabScoreMin();
+
+        m1.addObservale(t1);
+        m1.addObservale(t2);
+
+        System.out.println("Début du match");
+        m1.setScoreDomicile();
+        m1.setScoreDomicile();
+        m1.setScoreDomicile();
+    }
+}
+```
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Match implements Observable{
+    private String equipeDomicile;
+    private String equipeVisiteur;
+    private int scoreDomicile = 0;
+    private int scoreVisteur = 0;
+
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+    public Match(String equipeDomicile, String equipeVisiteur) {
+        super();
+        this.equipeDomicile = equipeDomicile;
+        this.equipeVisiteur = equipeVisiteur;
+    }
+    @Override
+    public void addObservale(Observer obj) {
+        observers.add(obj);
+    }
+    @Override
+    public void removeObserver(Observer obj) {
+        observers.remove(obj);
+    }
+    @Override
+    public void notifyObserver() {
+        for (Observer obj : observers) {
+            obj.update(this);
+        }
+    }
+    public void setScoreDomicile() {
+        ++this.scoreDomicile;
+        notifyObserver();
+    }
+    public void setScoreVisteur() {
+        ++this.scoreVisteur;
+        notifyObserver();
+    }
+    public String getEquipeDomicile() {
+        return equipeDomicile;
+    }
+    public String getEquipeVisiteur() {
+        return equipeVisiteur;
+    }
+    public int getScoreDomicile() {
+        return scoreDomicile;
+    }
+    public int getScoreVisteur() {
+        return scoreVisteur;
+    }
+}
+```
+```java
+public interface Observable {
+    public void addObservale(Observer obj);
+    public void removeObserver(Observer obj);
+    public void notifyObserver();
+}
+```
+```java
+public interface Observer {
+    public void update (Match obj);
+}
+```
+```java
+public class TabScoreMax implements Observer{
+    public TabScoreMax() {
+    }
+    @Override
+    public void update(Match obj) {
+        System.out.println(obj.getEquipeDomicile() + " " +obj.getScoreDomicile() + "  :  " + obj.getScoreVisteur() + " " +obj.getEquipeVisiteur());
+    }
+}
+```
+```java
+public class TabScoreMin implements Observer{
+    public TabScoreMin() {
+    }
+
+    @Override
+    public void update(Match obj) {
+        System.out.println(obj.getEquipeDomicile().substring(0,3) + " " +obj.getScoreDomicile() + "  :  " + obj.getScoreVisteur() + " " +obj.getEquipeVisiteur().substring(0,3));
+    }
+}
+```
 
 ## 2. Fabrique abstraite
 ### Description
-La **fabrique abstraite** est un modèle de conception qui s'inscrit dans la famille
-des modèles de conceptions de construction.
-Ces modèles déterminent de quelle manière on fait l'instanciation et la configuration
-des classes et des objets. <br/>
-La **fabrique abstraite** permet de créer des familles d'éléments complètes sans avoir à préciser leurs classes concrètes. C'est une interface.</br>
-La **fabrique abstraite** est donc un moyen d'implémenter chaque variante d'un élément à l'aide de classes. </br>
-On l'utilise avec le mot clé "implements", et en java, on doit @Override les méthodes présentent dans la fabrique abstraite.
+Le design pattern de la fabrique abstraite est un type de design pattern créationnel qui permet de créer des objets sans spécifier explicitement les classes concrètes des objets à créer. Il est utile lorsque nous avons plusieurs classes qui ont des relations de parenté et que nous voulons centraliser la logique de création de ces classes dans un seul endroit. Il permet également de rendre le code plus flexible.</br>
 
+ Il est également utile pour respecter le principe de substitution de Liskov, qui dit qu'une classe doit être remplaçable par ses sous-classes sans que le comportement global du programme ne change.</br>
 
+ <img src="./img/UML_DP_FabriqueAbstraite.jpg" alt="Diagramme UML Observateur"/>
 
-<img style="color:white;" src="./img/UML_DP_FabriqueAbstraite.png" alt="Diagramme UML Observateur"/>
+### Implémentation
+Pour utiliser ce design pattern, nous devons d'abord créer une interface ou une classe abstraite qui définit les méthodes pour créer les objets. Cette interface ou classe est appelée "fabrique abstraite". Ensuite, nous devons créer une ou plusieurs classes concrètes qui implémentent cette interface ou qui étendent cette classe abstraite. Ces classes sont appelées "fabriques concrètes".
+
+ <img src="./img/fabrique_abstraite_vehicules.png" alt="Diagramme UML Observateur"/>
+
+```java
+package org.example.vehicles;
+
+public class Car {
+    private String model;
+    private int horsePower;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getHorsePower() {
+        return horsePower;
+    }
+
+    public void setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    public Car(String model, int horsePower) {
+        this.model = model;
+        this.horsePower = horsePower;
+    }
+}
+```
+```java
+package org.example.vehicles;
+
+public class Motorcycle {
+    private String model;
+    private int horsePower;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getHorsePower() {
+        return horsePower;
+    }
+
+    public void setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    public Motorcycle(String model, int horsePower) {
+        this.model = model;
+        this.horsePower = horsePower;
+    }
+}
+```
+```java
+package org.example.factory;
+
+import org.example.vehicles.Car;
+import org.example.vehicles.Motorcycle;
+
+public class RenaultVehicleFactory implements VehicleFactory {
+    @Override
+    public Car createCar() {
+        return new Car("renault car",10);
+    }
+
+    @Override
+    public Motorcycle createMotorcycle() {
+        return new Motorcycle("renault motorcycle",5);
+    }
+}
+```
+```java
+package org.example.factory;
+
+import org.example.vehicles.Car;
+import org.example.vehicles.Motorcycle;
+
+public class ToyotaVehicleFactory implements VehicleFactory{
+    @Override
+    public Car createCar() {
+        return new Car("toyota car",10);
+    }
+
+    @Override
+    public Motorcycle createMotorcycle() {
+        return new Motorcycle("toyota motorcycle",5);
+    }
+}
+```
+```java
+package org.example.factory;
+
+import org.example.vehicles.Car;
+import org.example.vehicles.Motorcycle;
+
+public interface VehicleFactory {
+    public Car createCar();
+    public Motorcycle createMotorcycle();
+}
+```
