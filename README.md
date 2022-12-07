@@ -130,7 +130,7 @@ Le design pattern de la fabrique abstraite est un type de design pattern créati
 
  Il est également utile pour respecter le principe de substitution de Liskov, qui dit qu'une classe doit être remplaçable par ses sous-classes sans que le comportement global du programme ne change.</br>
 
- <img src="./img/UML_DP_FabriqueAbstraite.jpg" alt="Diagramme UML Observateur"/>
+ <img src="./img/UML_DP_FabriqueAbstraite.png" alt="Diagramme UML Observateur"/>
 
 ### Implémentation
 Pour utiliser ce design pattern, nous devons d'abord créer une interface ou une classe abstraite qui définit les méthodes pour créer les objets. Cette interface ou classe est appelée "fabrique abstraite". Ensuite, nous devons créer une ou plusieurs classes concrètes qui implémentent cette interface ou qui étendent cette classe abstraite. Ces classes sont appelées "fabriques concrètes".
