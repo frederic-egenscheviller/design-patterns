@@ -2,7 +2,7 @@
 ## 1. Observateur
 ### Description
 Premièrement, l'**observateur** est un modèle de conception comportemental et permet donc d'organiser les objets pour qu'ils puissent collaboré.  
-Mais plus spécifiquement, un **observateur** est un objet qui sert à notifier les objets sur un évènement qui est arrivé sur l'objet qu'ils observent.
+Mais plus spécifiquement, un **observateur** est un objet qui sert à notifier les objets sur un évènement qui est arrivé sur l'objet qu'il observe.
 
 Pour illustrer cela, nous pouvons prendre l'exemple d'un cinéma et de plusieurs clients.
 Le problème est que les clients se rendent tous les jours au cinéma pour savoir si le film qu'ils veulent voir est disponible.
