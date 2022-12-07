@@ -18,7 +18,7 @@ Mais il ne faut oublier qu'un modèle de conception peut-être réutilisé dans 
 Implémenter une classe Match qui notifie les abonnés lorsque le score du match change.
 Cette classe accepte de nouveau abonné et ils leurs permet de se désabonner.
 
-<img src="./img/fabrique_abstraite_vehicules.png" alt="Diagramme UML Observateur"/>
+<img src="./img/implementation_observable_uml.png" alt="Diagramme UML Observateur"/>
 
 ```java
 public class Main {
