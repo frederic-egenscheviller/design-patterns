@@ -1,5 +1,5 @@
 # Design-patterns
-## 1. Observateur 
+## 1. Observateur  
 ### Description
 Premièrement, l'**observateur** est un modèle de conception comportemental et permet donc d'organiser les objets pour qu'ils puissent collaboré.  
 Mais plus spécifiquement, un **observateur** est un objet qui sert à notifier les objets sur un évènement qui est arrivé sur l'objet qu'il observe.
