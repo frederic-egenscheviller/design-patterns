@@ -248,8 +248,8 @@ public interface VehicleFactory {
 ```
 
 
-### Sources :
-
-https://refactoring.guru/fr/design-patterns/observer
-https://refactoring.guru/fr/design-patterns/abstract-factory
+### Sources : <br>
+<br><br>
+https://refactoring.guru/fr/design-patterns/observer <br>
+https://refactoring.guru/fr/design-patterns/abstract-factory <br>
 https://openai.com/
