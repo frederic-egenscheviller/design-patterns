@@ -1,12 +1,35 @@
 # Design-patterns
-## 1. Observateur  
-### Description
+
+# Introduction
+## Qu'est-ce qu'un design pattern
+« Chaque patron décrit un problème qui se manifeste constamment dans notre
+environnement, et donc décrit le cœur de la solution à ce problème, d’une
+façon telle que l’on puisse réutiliser cette solution des millions de fois, sans
+jamais le faire deux fois de la même manière » - Christopher Alexander, 1977
+
+## Nos design patterns
+Lors de ce projet, nous présenterons deux design patterns que sont l'**observateur** et celui de la **frabrique abstraite**.
+
+# Sommaire
+## [1. Observateur](#observateur)
+### [a. Description](#observateurDescription)
+### [b. Exemple](#observateurExemple)
+### [c. Implémentation](#observateurImplementation)
+## [2. Fabrique abstraite](#Fabrique_abstraite)
+### [a. Description](#Fabrique_abstraiteDescription)
+### [b. Implémentation](#Fabrique_abstraiteImplémentation)
+## [3. Sources](#source)
+<br>
+
+
+## 1. Observateur <a name="observateur"></a>
+### a. Description <a name="observateurDescription"></a>
 Premièrement, l'**observateur** est un modèle de conception comportemental et permet donc d'organiser les objets pour qu'ils puissent collaboré.  
 Mais plus spécifiquement, un **observateur** est un objet qui sert à notifier les objets sur un évènement qui est arrivé sur l'objet qu'il observe.
 
 <img src="./img/DesignPattern-Observateur-Basic.png" alt="Diagramme UML Observateur"/>
 
-### Exemple
+### b. Exemple <a name="observateurExemple"></a>
 
 Pour illustrer cela, nous pouvons prendre l'exemple d'un cinéma et de plusieurs clients.
 Le problème est que les clients se rendent tous les jours au cinéma pour savoir si le film qu'ils veulent voir est disponible.
@@ -15,7 +38,7 @@ La solution serait que le cinéma propose un abonemment à une newsletter (et la
 
 Mais il ne faut oublier qu'un modèle de conception peut-être réutilisé dans de nombreux cas du quotidien comme une application sportive qui envoie une notification sur le score du match lorsque ce-dernier change, ...
 
-### Implémentation
+### c. Implémentation <a name="observateurImplementation"></a>
 
 Implémenter une classe Match qui notifie les abonnés lorsque le score du match change.
 Cette classe accepte de nouveau abonné et ils leurs permet de se désabonner.
@@ -128,15 +151,15 @@ public class TabScoreMin implements Observer{
 
 
 
-## 2. Fabrique abstraite
-### Description
+## 2. Fabrique abstraite <a name="Fabrique_abstraite"></a>
+### a. Description <a name="Fabrique_abstraiteDescription"></a>
 Le design pattern de la fabrique abstraite est un type de design pattern créationnel qui permet de créer des objets sans spécifier explicitement les classes concrètes des objets à créer. Il est utile lorsque nous avons plusieurs classes qui ont des relations de parenté et que nous voulons centraliser la logique de création de ces classes dans un seul endroit. Il permet également de rendre le code plus flexible.</br>
 
  Il est également utile pour respecter le principe de substitution de Liskov, qui dit qu'une classe doit être remplaçable par ses sous-classes sans que le comportement global du programme ne change.</br>
 
  <img src="./img/UML_DP_FabriqueAbstraite.png" alt="Diagramme UML Observateur"/>
 
-### Implémentation
+### b. Implémentation <a name="Fabrique_abstraiteImplémentation"></a>
 Pour utiliser ce design pattern, nous devons d'abord créer une interface ou une classe abstraite qui définit les méthodes pour créer les objets. Cette interface ou classe est appelée "fabrique abstraite". Ensuite, nous devons créer une ou plusieurs classes concrètes qui implémentent cette interface ou qui étendent cette classe abstraite. Ces classes sont appelées "fabriques concrètes".
 
  <img src="./img/fabrique_abstraite_vehicules.png" alt="Diagramme UML Observateur"/>
@@ -248,8 +271,9 @@ public interface VehicleFactory {
 ```
 
 
-### Sources : <br>
+## 3. Sources : <a name="source"></a> 
 <br><br>
 https://refactoring.guru/fr/design-patterns/observer <br>
 https://refactoring.guru/fr/design-patterns/abstract-factory <br>
 https://openai.com/
+https://www.mickael-martin-nevot.com/univ-amu/iut/but-informatique/qualite-de-developpement/?:s45-td5-expose-sur-les-modeles-de-conception.pdf
