@@ -126,6 +126,8 @@ public class TabScoreMin implements Observer{
 }
 ```
 
+
+
 ## 2. Fabrique abstraite
 ### Description
 Le design pattern de la fabrique abstraite est un type de design pattern créationnel qui permet de créer des objets sans spécifier explicitement les classes concrètes des objets à créer. Il est utile lorsque nous avons plusieurs classes qui ont des relations de parenté et que nous voulons centraliser la logique de création de ces classes dans un seul endroit. Il permet également de rendre le code plus flexible.</br>
@@ -244,3 +246,10 @@ public interface VehicleFactory {
     public Motorcycle createMotorcycle();
 }
 ```
+
+
+### Sources :
+
+https://refactoring.guru/fr/design-patterns/observer
+https://refactoring.guru/fr/design-patterns/abstract-factory
+https://openai.com/
